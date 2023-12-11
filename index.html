@@ -3,65 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>Happy Birthday Gift</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            background-color: #f5f5f5;
-            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
+            background-color: #f0f0f0;
         }
 
-        #birthday-message {
-            margin-top: 100px;
-            font-size: 24px;
-            color: #ff6347;
+        #gift {
+            font-size: 3em;
+            cursor: pointer;
         }
 
-        .confetti {
-            width: 10px;
-            height: 10px;
-            background-color: #ff6347;
-            position: absolute;
-            border-radius: 50%;
-            transform: rotate(45deg);
-            animation: fall 2s ease-in-out infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translate(0, 0) rotate(45deg);
-            }
-            100% {
-                transform: translate(200px, 200vh) rotate(45deg);
-            }
+        #message {
+            display: none;
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div id="birthday-message">
-        <h1>Happy Birthday!</h1>
-        <p>Wishing you a fantastic day filled with joy and laughter.</p>
-    </div>
 
-    <script>
-        // JavaScript for confetti effect
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            confetti.style.left = Math.random() * window.innerWidth + 'px';
-            document.body.appendChild(confetti);
+<div id="gift" onclick="revealMessage()">🎁</div>
 
-            // Remove confetti after animation
-            confetti.addEventListener('animationiteration', () => {
-                confetti.remove();
-            });
-        }
+<div id="message">
+    <p>Happy Birthday!</p>
+    <p>Wishing you a fantastic day filled with joy and celebration.</p>
+</div>
 
-        // Generate confetti periodically
-        setInterval(createConfetti, 500);
-    </script>
+<script>
+    function revealMessage() {
+        var gift = document.getElementById("gift");
+        var message = document.getElementById("message");
+
+        // Hide the gift emoji
+        gift.style.display = "none";
+
+        // Display the birthday message
+        message.style.display = "block";
+    }
+</script>
+
 </body>
 </html>
