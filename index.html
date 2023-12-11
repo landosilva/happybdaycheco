@@ -14,9 +14,18 @@
             background-color: #f0f0f0;
         }
 
+        #gift-container {
+            text-align: center;
+        }
+
         #gift {
-            font-size: 3em;
+            font-size: 4em;
             cursor: pointer;
+        }
+
+        #click-to-open {
+            font-size: 1.5em;
+            margin-top: 10px;
         }
 
         #message {
@@ -29,7 +38,10 @@
 </head>
 <body>
 
-<div id="gift" onclick="revealMessage()">🎁</div>
+<div id="gift-container">
+    <div id="gift" onclick="revealMessage()">🎁</div>
+    <div id="click-to-open">Click to open</div>
+</div>
 
 <div id="message">
     <p>Happy Birthday!</p>
@@ -38,11 +50,11 @@
 
 <script>
     function revealMessage() {
-        var gift = document.getElementById("gift");
+        var giftContainer = document.getElementById("gift-container");
         var message = document.getElementById("message");
 
-        // Hide the gift emoji
-        gift.style.display = "none";
+        // Hide the gift container
+        giftContainer.style.display = "none";
 
         // Display the birthday message
         message.style.display = "block";
